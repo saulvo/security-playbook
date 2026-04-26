@@ -8,8 +8,12 @@
   --border: rgba(0, 0, 0, 0.08);
   --muted: #666666;
   --card-bg: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-hover-overlay: rgba(0, 0, 0, 0.03);
   --link: #0072f5;
+  --badge-bg: #ebf5ff;
+  --badge-text: #0068d6;
+  --surface-hover: #fafafa;
   --code-bg: #1e1e1e;
   --code-foreground: #ededed;
 }
@@ -20,8 +24,12 @@
   --border: rgba(255, 255, 255, 0.1);
   --muted: #888888;
   --card-bg: #1a1a1a;
-  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-overlay: rgba(255, 255, 255, 0.03);
   --link: #69b4ff;
+  --badge-bg: rgba(0, 104, 214, 0.2);
+  --badge-text: #69b4ff;
+  --surface-hover: #2a2a2a;
   --code-bg: #1e1e1e;
   --code-foreground: #ededed;
 }
@@ -29,6 +37,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-link: var(--link);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-hover-overlay: var(--card-hover-overlay);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-surface-hover: var(--surface-hover);
+  --color-code-bg: var(--code-bg);
+  --color-code-foreground: var(--code-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

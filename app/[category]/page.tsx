@@ -32,14 +32,14 @@ export default async function CategoryPage({ params }: PageProps) {
   const posts = getPostsByCategory(category);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col bg-background dark:bg-background">
       <Header />
       <main className="flex-1 max-w-5xl mx-auto w-full px-6 py-16">
         <div className="mb-12">
-          <h1 className="text-4xl font-semibold tracking-tight text-[#171717] dark:text-[#ededed] mb-4">
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground dark:text-foreground mb-4">
             {categoryInfo?.name || category}
           </h1>
-          <p className="text-lg text-[#4d4d4d] dark:text-[#888]">
+          <p className="text-lg text-muted dark:text-muted">
             {posts.length} {posts.length === 1 ? 'article' : 'articles'}
           </p>
         </div>

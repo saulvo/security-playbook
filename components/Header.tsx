@@ -8,11 +8,11 @@ export default function Header() {
   const { actions: { open } } = useSearch();
 
   return (
-    <header className="sticky top-0 z-40 bg-white dark:bg-[#0a0a0a] border-b border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.1)]">
+    <header className="sticky top-0 z-40 bg-background dark:bg-background border-b border-border dark:border-border">
       <nav className="max-w-5xl mx-auto w-full px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-[#171717] dark:text-[#ededed]"
+          className="text-lg font-semibold tracking-tight text-foreground dark:text-foreground"
         >
           Security Playbook
         </Link>
@@ -20,7 +20,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <button
             onClick={open}
-            className="flex items-center gap-2 text-sm text-[#666] dark:text-[#888] hover:text-[#171717] dark:hover:text-[#ededed] transition-colors"
+            className="flex items-center gap-2 text-sm text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -35,7 +35,7 @@ export default function Header() {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-xs bg-[#fafafa] dark:bg-[#2a2a2a] rounded">
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-xs bg-surface-hover dark:bg-surface-hover rounded">
               ⌘K
             </kbd>
           </button>
@@ -44,11 +44,11 @@ export default function Header() {
             href="https://github.com/saulvo/security-playbook"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-md hover:bg-[#fafafa] dark:hover:bg-[#1a1a1a] transition-colors"
+            className="p-2 rounded-md hover:bg-surface-hover dark:hover:bg-surface-hover transition-colors"
             aria-label="GitHub repository"
           >
             <svg
-              className="w-5 h-5 text-[#666] dark:text-[#888]"
+              className="w-5 h-5 text-muted dark:text-muted"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
