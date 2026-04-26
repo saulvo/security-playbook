@@ -1,0 +1,82 @@
+import Link from 'next/link';
+
+const categories = [
+  { slug: 'authentication', name: 'Authentication' },
+  { slug: 'authorization', name: 'Authorization' },
+  { slug: 'encryption', name: 'Encryption' },
+  { slug: 'web-chat-security', name: 'Web Chat Security' },
+  { slug: 'xss-csrf-csp', name: 'XSS, CSRF & CSP' },
+  { slug: 'security-scanning', name: 'Security Scanning' },
+  { slug: 'checklists', name: 'Checklists' },
+];
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.1)] bg-white dark:bg-[#0a0a0a]">
+      <div className="max-w-5xl mx-auto w-full px-6 py-12">
+        <div className="grid gap-8 md:grid-cols-3">
+          <div>
+            <h3 className="text-sm font-semibold text-[#171717] dark:text-[#ededed] mb-4">
+              Security Playbook
+            </h3>
+            <p className="text-sm text-[#4d4d4d] dark:text-[#888]">
+              A comprehensive guide to frontend security best practices.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-[#171717] dark:text-[#ededed] mb-4">
+              Categories
+            </h3>
+            <ul className="space-y-2">
+              {categories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/${cat.slug}`}
+                    className="text-sm text-[#4d4d4d] dark:text-[#888] hover:text-[#0072f5] transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-[#171717] dark:text-[#ededed] mb-4">
+              Resources
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://owasp.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#4d4d4d] dark:text-[#888] hover:text-[#0072f5] transition-colors"
+                >
+                  OWASP
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://cheatsheetseries.owasp.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#4d4d4d] dark:text-[#888] hover:text-[#0072f5] transition-colors"
+                >
+                  OWASP Cheat Sheets
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.1)]">
+          <p className="text-sm text-[#4d4d4d] dark:text-[#888] text-center">
+            © {new Date().getFullYear()} Saul Vo. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
