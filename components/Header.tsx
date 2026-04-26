@@ -8,11 +8,11 @@ export default function Header() {
   const { actions: { open } } = useSearch();
 
   return (
-    <header className="sticky top-0 z-40 bg-background dark:bg-background border-b border-border dark:border-border">
+    <header className="sticky top-0 z-40 bg-background border-b border-border">
       <nav className="max-w-5xl mx-auto w-full px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-foreground dark:text-foreground"
+          className="text-lg font-semibold tracking-tight text-foreground"
         >
           Security Playbook
         </Link>
@@ -20,7 +20,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <button
             onClick={open}
-            className="flex items-center gap-2 text-sm text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -35,7 +35,7 @@ export default function Header() {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-xs bg-surface-hover dark:bg-surface-hover rounded">
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-xs bg-surface-hover rounded">
               ⌘K
             </kbd>
           </button>
@@ -48,7 +48,7 @@ export default function Header() {
             aria-label="GitHub repository"
           >
             <svg
-              className="w-5 h-5 text-muted dark:text-muted"
+              className="w-5 h-5 text-muted"
               fill="currentColor"
               viewBox="0 0 24 24"
             >

@@ -34,7 +34,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
 
   return (
     <nav className="space-y-2">
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted dark:text-muted mb-4">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted mb-4">
         On this page
       </h3>
       <ul className="space-y-2">
@@ -48,7 +48,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
               className={`block text-sm transition-colors ${
                 activeId === item.id
                   ? 'text-link font-medium'
-                  : 'text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground'
+                  : 'text-muted hover:text-foreground'
               }`}
             >
               {item.text}

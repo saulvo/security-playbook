@@ -86,13 +86,13 @@ function FilterNav({ categories }: { categories: CategoryInfo[] }) {
   const { setCategory } = actions;
 
   return (
-    <nav className="flex flex-wrap gap-6 mb-8 border-b border-border dark:border-border pb-4">
+    <nav className="flex flex-wrap gap-6 mb-8 border-b border-border pb-4">
       <button
         onClick={() => setCategory('all')}
         className={`text-sm font-medium transition-colors ${
           selectedCategory === 'all'
-            ? 'text-foreground dark:text-foreground'
-            : 'text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground'
+            ? 'text-foreground'
+            : 'text-muted hover:text-foreground'
         }`}
       >
         All Posts
@@ -127,19 +127,19 @@ function PostGrid() {
         >
           <a href={`/${post.category}/${post.slug}`} className="block">
             <div className="flex items-start justify-between gap-4 mb-3">
-              <h2 className="text-xl font-semibold text-foreground dark:text-foreground tracking-tight">
+              <h2 className="text-xl font-semibold text-foreground tracking-tight">
                 {post.title}
               </h2>
-              <span className="text-xs font-medium text-badge-text bg-badge-bg dark:bg-badge-bg dark:text-badge-text px-2 py-1 rounded-full">
+              <span className="text-xs font-medium text-badge-text bg-badge-bg px-2 py-1 rounded-full">
                 {post.category}
               </span>
             </div>
             {post.description && (
-              <p className="text-muted dark:text-muted text-sm mb-4 line-clamp-2">
+              <p className="text-muted text-sm mb-4 line-clamp-2">
                 {post.description}
               </p>
             )}
-            <div className="flex items-center gap-4 text-xs text-muted dark:text-muted">
+            <div className="flex items-center gap-4 text-xs text-muted">
               <span>{post.readingTime}</span>
               <span>•</span>
               <span>{post.author}</span>
@@ -162,7 +162,7 @@ function LoadMore() {
     <div className="mt-12 text-center">
       <button
         onClick={loadMore}
-        className="px-6 py-3 text-sm font-medium bg-foreground text-background dark:bg-foreground dark:text-background rounded-full hover:opacity-90 transition-opacity"
+        className="px-6 py-3 text-sm font-medium bg-foreground text-background rounded-full hover:opacity-90 transition-opacity"
       >
         Load More
       </button>
@@ -178,7 +178,7 @@ function EmptyState() {
 
   return (
     <div className="py-12 text-center">
-      <p className="text-sm text-muted dark:text-muted">No posts found.</p>
+      <p className="text-sm text-muted">No posts found.</p>
     </div>
   );
 }

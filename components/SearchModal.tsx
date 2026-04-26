@@ -50,9 +50,9 @@ export default function SearchModal() {
         }}
       >
         <Command className="flex flex-col max-h-[60vh]" shouldFilter={false}>
-          <div className="flex items-center border-b border-border dark:border-border px-4">
+          <div className="flex items-center border-b border-border px-4">
             <svg
-              className="w-5 h-5 text-muted dark:text-muted"
+              className="w-5 h-5 text-muted"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -68,16 +68,16 @@ export default function SearchModal() {
               value={query}
               onValueChange={setQuery}
               placeholder="Search posts..."
-              className="flex-1 px-4 py-4 text-sm bg-transparent outline-none text-foreground dark:text-foreground placeholder:text-muted dark:placeholder:text-muted"
+              className="flex-1 px-4 py-4 text-sm bg-transparent outline-none text-foreground placeholder:text-muted"
               autoFocus
             />
-            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-muted dark:text-muted bg-surface-hover dark:bg-surface-hover rounded">
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-muted bg-surface-hover rounded">
               ESC
             </kbd>
           </div>
           <Command.List className="overflow-y-auto p-2">
             {filteredPosts.length === 0 ? (
-              <p className="px-4 py-8 text-sm text-center text-muted dark:text-muted">
+              <p className="px-4 py-8 text-sm text-center text-muted">
                 No posts found.
               </p>
             ) : (
@@ -86,13 +86,13 @@ export default function SearchModal() {
                   key={`${post.category}-${post.slug}`}
                   value={`${post.title} ${post.description}`}
                   onSelect={() => handleSelect(post.slug, post.category)}
-                  className="flex flex-col gap-1 px-4 py-3 cursor-pointer rounded-lg hover:bg-surface-hover dark:hover:bg-surface-hover data-[selected=true]:bg-surface-hover dark:data-[selected=true]:bg-surface-hover"
+                  className="flex flex-col gap-1 px-4 py-3 cursor-pointer rounded-lg hover:bg-surface-hover data-[selected=true]:bg-surface-hover"
                 >
-                  <span className="text-sm font-medium text-foreground dark:text-foreground">
+                  <span className="text-sm font-medium text-foreground">
                     {post.title}
                   </span>
                   {post.description && (
-                    <span className="text-xs text-muted dark:text-muted line-clamp-1">
+                    <span className="text-xs text-muted line-clamp-1">
                       {post.description}
                     </span>
                   )}

@@ -10,15 +10,15 @@ export default function PrevNextNav({ prev, next }: PrevNextNavProps) {
   if (!prev && !next) return null;
 
   return (
-    <nav className="flex items-center justify-between gap-4 mt-16 pt-8 border-t border-border dark:border-border">
+    <nav className="flex items-center justify-between gap-4 mt-16 pt-8 border-t border-border">
       <div>
         {prev && (
           <Link
             href={`/${prev.category}/${prev.slug}`}
             className="group flex flex-col gap-1"
           >
-            <span className="text-xs text-muted dark:text-muted">← Previous</span>
-            <span className="text-sm font-medium text-foreground dark:text-foreground group-hover:text-link transition-colors">
+            <span className="text-xs text-muted">← Previous</span>
+            <span className="text-sm font-medium text-foreground group-hover:text-link transition-colors">
               {prev.title}
             </span>
           </Link>
@@ -30,8 +30,8 @@ export default function PrevNextNav({ prev, next }: PrevNextNavProps) {
             href={`/${next.category}/${next.slug}`}
             className="group flex flex-col gap-1 text-right"
           >
-            <span className="text-xs text-muted dark:text-muted">Next →</span>
-            <span className="text-sm font-medium text-foreground dark:text-foreground group-hover:text-link transition-colors">
+            <span className="text-xs text-muted">Next →</span>
+            <span className="text-sm font-medium text-foreground group-hover:text-link transition-colors">
               {next.title}
             </span>
           </Link>

@@ -55,7 +55,7 @@ export default async function PostPage({ params }: PageProps) {
   const categoryInfo = categories.find((c) => c.slug === category);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background dark:bg-background">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1 max-w-5xl mx-auto w-full px-6 py-16">
         <div className="mb-4">
@@ -69,11 +69,11 @@ export default async function PostPage({ params }: PageProps) {
 
         <article className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12">
           <div>
-            <header className="mb-12 pb-8 border-b border-border dark:border-border">
-              <h1 className="text-4xl font-semibold tracking-tight text-foreground dark:text-foreground mb-4">
+            <header className="mb-12 pb-8 border-b border-border">
+              <h1 className="text-4xl font-semibold tracking-tight text-foreground mb-4">
                 {post.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted dark:text-muted">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
                 <span>{post.date}</span>
                 <span>•</span>
                 <span>{post.readingTime}</span>
@@ -85,7 +85,7 @@ export default async function PostPage({ params }: PageProps) {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-medium text-badge-text bg-badge-bg dark:bg-badge-bg dark:text-badge-text px-2 py-1 rounded-full"
+                      className="text-xs font-medium text-badge-text bg-badge-bg px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>
