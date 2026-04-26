@@ -32,9 +32,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SearchProvider>
+          <SearchProvider allPosts={allPosts}>
             {children}
-            <SearchModal posts={allPosts} />
+            <SearchModal />
           </SearchProvider>
         </ThemeProvider>
       </body>

@@ -5,7 +5,7 @@ import { useSearch } from "./SearchContext";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
-  const { open: openSearch } = useSearch();
+  const { actions: { open } } = useSearch();
 
   return (
     <header className="sticky top-0 z-40 bg-white dark:bg-[#0a0a0a] border-b border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.1)]">
@@ -19,7 +19,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <button
-            onClick={openSearch}
+            onClick={open}
             className="flex items-center gap-2 text-sm text-[#666] dark:text-[#888] hover:text-[#171717] dark:hover:text-[#ededed] transition-colors"
           >
             <svg

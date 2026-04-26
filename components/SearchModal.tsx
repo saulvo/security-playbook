@@ -1,18 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Command } from 'cmdk';
 import { useSearch } from './SearchContext';
-import type { PostMeta } from '@/lib/blog';
 
-interface SearchModalProps {
-  posts: PostMeta[];
-}
-
-export default function SearchModal({ posts }: SearchModalProps) {
-  const [search, setSearch] = useState('');
-  const { isOpen, close } = useSearch();
+export default function SearchModal() {
+  const { state, actions } = useSearch();
+  const { query, filteredPosts } = state;
+  const { setQuery, close } = actions;
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +18,7 @@ export default function SearchModal({ posts }: SearchModalProps) {
       }
     };
 
-    if (isOpen) {
+    if (state.isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
     }
@@ -31,24 +27,14 @@ export default function SearchModal({ posts }: SearchModalProps) {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [isOpen, close]);
-
-  const filteredPosts = search.trim()
-    ? posts.filter(
-        (post) =>
-          post.title.toLowerCase().includes(search.toLowerCase()) ||
-          post.description.toLowerCase().includes(search.toLowerCase()) ||
-          post.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
-      )
-    : posts.slice(0, 10);
+  }, [state.isOpen, close]);
 
   const handleSelect = (slug: string, category: string) => {
     close();
-    setSearch('');
     router.push(`/${category}/${slug}`);
   };
 
-  if (!isOpen) return null;
+  if (!state.isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh]">
@@ -79,8 +65,8 @@ export default function SearchModal({ posts }: SearchModalProps) {
               />
             </svg>
             <Command.Input
-              value={search}
-              onValueChange={setSearch}
+              value={query}
+              onValueChange={setQuery}
               placeholder="Search posts..."
               className="flex-1 px-4 py-4 text-sm bg-transparent outline-none text-[#171717] dark:text-[#ededed] placeholder:text-[#666] dark:placeholder:text-[#888]"
               autoFocus

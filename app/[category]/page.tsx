@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: PageProps) {
             {posts.length} {posts.length === 1 ? 'article' : 'articles'}
           </p>
         </div>
-        <CategoryContent posts={posts} />
+        <CategoryContent posts={posts} category={category} />
       </main>
       <Footer />
     </div>
