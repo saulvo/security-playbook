@@ -47,9 +47,7 @@ export const MDXComponents: MDXComponentsType = {
     );
   },
   p: ({ children }: ComponentPropsWithoutRef<"p">) => (
-    <p className="text-[var(--muted)] leading-relaxed mb-4">
-      {children}
-    </p>
+    <p className="text-[var(--muted)] leading-relaxed mb-4">{children}</p>
   ),
   a: ({ href, children }: ComponentPropsWithoutRef<"a">) => (
     <Link
@@ -71,9 +69,31 @@ export const MDXComponents: MDXComponentsType = {
       {children}
     </ol>
   ),
-  li: ({ children }: ComponentPropsWithoutRef<"li">) => (
-    <li className="text-[var(--muted)]">{children}</li>
-  ),
+  li: ({ children }: ComponentPropsWithoutRef<"li">) => {
+    let hasCheckbox = false;
+
+    const checkChildren = (child: any) => {
+      if (!child) return;
+      if (Array.isArray(child)) {
+        child.forEach(checkChildren);
+      } else if (typeof child === "object" && child !== null) {
+        if (child.type === "input" && child.props?.type === "checkbox") {
+          hasCheckbox = true;
+        }
+        if (child.props?.children) {
+          checkChildren(child.props.children);
+        }
+      }
+    };
+
+    checkChildren(children);
+
+    return (
+      <li className={hasCheckbox ? "list-none" : "text-[var(--muted)]"}>
+        {children}
+      </li>
+    );
+  },
   blockquote: ({ children }: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote className="border-l-4 border-[var(--link)] pl-4 my-4 italic text-[var(--muted)]">
       {children}
@@ -118,12 +138,11 @@ export const MDXComponents: MDXComponentsType = {
       {children}
     </td>
   ),
-  hr: () => (
-    <hr className="my-8 border-[var(--border)]" />
-  ),
+  hr: () => <hr className="my-8 border-[var(--border)]" />,
   strong: ({ children }: ComponentPropsWithoutRef<"strong">) => (
     <strong className="font-semibold text-[var(--foreground)]">
       {children}
     </strong>
   ),
 };
+

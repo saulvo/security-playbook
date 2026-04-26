@@ -73,7 +73,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.1)]">
           <p className="text-sm text-[#4d4d4d] dark:text-[#888] text-center">
-            © {new Date().getFullYear()} Saul Vo. All rights reserved.
+            © {new Date().getFullYear()} <a href="https://saulvo.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-[#171717] dark:hover:text-[#ededed] transition-colors">Saul Vo</a>. All rights reserved.
           </p>
         </div>
       </div>
